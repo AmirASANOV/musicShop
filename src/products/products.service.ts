@@ -18,6 +18,7 @@ export class ProductsService {
       FileType.IMAGE,
       picture,
     );
+
     const product = await this.productsRepository.save({
       ...createProductDto,
       user: {
@@ -25,7 +26,6 @@ export class ProductsService {
       },
       picture: picturePath,
     });
-    console.log(product);
     return product;
   }
 

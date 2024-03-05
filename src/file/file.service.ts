@@ -11,7 +11,6 @@ export enum FileType {
 export class FileService {
   async createFile(type: FileType, file): Promise<string> {
     try {
-      console.log(file);
       const fileExtension = file.originalname.split('.').pop();
       const fileName = uuid.v4() + '.' + fileExtension;
       const filePath = path.resolve(__dirname, '..', 'static', type);

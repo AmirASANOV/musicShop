@@ -24,15 +24,17 @@ export class ProductController {
   @Post()
   @UseInterceptors(FileFieldsInterceptor([{ name: 'picture', maxCount: 1 }]))
   async create(
-    @UploadedFiles() files,
     @Body() createProductDto: CreateProductDto,
     @Req() req: Request,
+    @UploadedFiles() files,
   ) {
-    const picture = files;
+    const picture = files.picture;
+    console.log(picture[0]);
+
     return this.productsService.create(
       createProductDto,
       req['user'],
-      picture[0],
+      picture.picture[0],
     );
   }
 
