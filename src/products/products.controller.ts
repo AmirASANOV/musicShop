@@ -28,13 +28,10 @@ export class ProductController {
     @Req() req: Request,
     @UploadedFiles() files,
   ) {
-    const picture = files.picture;
-    console.log(picture[0]);
-
     return this.productsService.create(
       createProductDto,
       req['user'],
-      picture.picture[0],
+      files.picture[0],
     );
   }
 
