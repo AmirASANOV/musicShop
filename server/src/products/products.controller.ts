@@ -40,10 +40,4 @@ export class ProductController {
   async getAllProducts(@Req() req: Request) {
     return this.productsService.getAllProducts(req['user']);
   }
-
-  // @UseGuards(TokenGuard)
-  // @Get()
-  // async searchProduct(@Query) {
-  //   return;
-  // }
 }

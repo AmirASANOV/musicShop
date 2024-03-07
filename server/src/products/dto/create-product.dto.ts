@@ -13,4 +13,7 @@ export class CreateProductDto {
   })
   @IsString()
   description: string;
+
+  @IsString()
+  picture: string;
 }
