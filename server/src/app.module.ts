@@ -3,7 +3,6 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'dotenv';
 import { ProductsModule } from './products/products.module';
-import { FileController } from './file/file.controller';
 import { FilesController } from './files/files.controller';
 import { FilesModule } from './files/files.module';
 
@@ -25,6 +24,6 @@ config();
     }),
     FilesModule,
   ],
-  controllers: [FileController, FilesController],
+  controllers: [FilesController],
 })
-export class AppModule {}
+export class AppModule { }
