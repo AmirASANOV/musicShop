@@ -25,7 +25,4 @@ export class Product {
 
   @CreateDateColumn()
   created: Date;
-
-  @Column()
-  picture: string;
 }
