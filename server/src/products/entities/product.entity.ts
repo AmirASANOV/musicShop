@@ -1,4 +1,5 @@
 import { User } from 'src/auth/entities/user.entity';
+
 import {
   Column,
   CreateDateColumn,
@@ -25,4 +26,7 @@ export class Product {
 
   @CreateDateColumn()
   created: Date;
+
+  @Column()
+  picture: string;
 }

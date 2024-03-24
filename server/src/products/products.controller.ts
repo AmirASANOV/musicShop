@@ -20,7 +20,7 @@ import { fileStorage } from 'src/files/storage';
 @ApiBearerAuth()
 @Controller('products')
 export class ProductController {
-  constructor(private readonly productsService: ProductsService) { }
+  constructor(private readonly productsService: ProductsService) {}
 
   @UseGuards(TokenGuard)
   @Post('create')
@@ -63,13 +63,12 @@ export class ProductController {
   create(
     @Body() createProductDto: CreateProductDto,
     @Req() req: Request,
-    @UploadedFile() file: Express.Multer.File
+    @UploadedFile() file: Express.Multer.File,
   ) {
-    console.log(file);
     return this.productsService.createProductService(
       {
-        picture: file.path,
-        ...createProductDto
+        ...createProductDto,
+        picture: file.path.replaceAll('uploads/', ''),
       },
       req['user'],
     );
