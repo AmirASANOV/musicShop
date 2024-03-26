@@ -26,4 +26,4 @@ config();
   ],
   controllers: [FilesController],
 })
-export class AppModule { }
+export class AppModule {}
