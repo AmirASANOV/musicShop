@@ -15,6 +15,9 @@ export class CreateProductDto {
   description: string;
 
   @IsString()
+  price: string;
+
+  @IsString()
   @IsOptional()
   picture: string;
 }

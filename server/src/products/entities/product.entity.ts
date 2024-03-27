@@ -24,6 +24,9 @@ export class Product {
   @Column()
   description: string;
 
+  @Column()
+  price: string;
+
   @CreateDateColumn()
   created: Date;
 
