@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import s from "./style.module.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,9 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body>
         <Header />
+        <ShoppingBagIcon className={s.icon} />
         <main>{children}</main>
       </body>
     </html>

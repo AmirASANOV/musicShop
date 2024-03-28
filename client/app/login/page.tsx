@@ -1,13 +1,4 @@
-import {
-  Grid,
-  Paper,
-  Avatar,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Button,
-  Typography,
-} from "@mui/material";
+import { Grid, Paper, TextField, Button, Typography } from "@mui/material";
 import Link from "next/link";
 
 const Login = () => {
