@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header/Header";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import s from "./style.module.scss";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         <Header />
-        <ShoppingBagIcon className={s.icon} />
+        <Link href="/basket">
+          <ShoppingBagIcon className={s.icon} />
+        </Link>
         <main>{children}</main>
       </body>
     </html>

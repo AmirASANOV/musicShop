@@ -19,6 +19,7 @@ const Login = () => {
           variant="outlined"
           fullWidth
           required
+          style={{ marginBottom: "10px" }}
         />
         <TextField
           label="Password"
@@ -31,9 +32,8 @@ const Login = () => {
 
         <Button
           type="submit"
-          color="primary"
           variant="contained"
-          style={btnstyle}
+          style={{ ...btnstyle, background: "teal" }}
           fullWidth
         >
           Sign in

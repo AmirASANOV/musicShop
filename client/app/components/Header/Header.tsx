@@ -8,7 +8,9 @@ const Header = () => {
     <div>
       <AppBar position="static" sx={{ background: "teal" }}>
         <Toolbar className={s.header}>
-          <AccountBoxIcon />
+          <Link href="/getMe">
+            <AccountBoxIcon style={{ color: "#fff" }} />
+          </Link>
 
           <div className="links">
             <Link className={s.link} href="/">

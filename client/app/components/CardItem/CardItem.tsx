@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./CardItem.module.scss";
+import { Button } from "@mui/material";
 
 const CardItem = () => {
   return (
@@ -15,7 +16,18 @@ const CardItem = () => {
       </div>
       <h3 className={s.text}>Title</h3>
       <p className={s.text}>Description</p>
-      <p className={s.text}>4000</p>
+
+      <div className={s.buy}>
+        <p className={s.text}>4000</p>
+        <Button
+          className={s.button}
+          variant="contained"
+          style={{ background: "teal" }}
+          href="#"
+        >
+          buy
+        </Button>
+      </div>
     </div>
   );
 };
