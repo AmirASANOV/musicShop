@@ -1,7 +1,30 @@
+"use client";
 import { Grid, Paper, TextField, Button, Typography } from "@mui/material";
 import Link from "next/link";
+import useInput from "../hooks/useInput";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setToken } from "../store/authSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const username = useInput("");
+  const password = useInput("");
+
+  const handleSubmit = () => {
+    axios
+      .post("http://localhost:1000/auth/login", {
+        email: username.value,
+        password: password.value,
+      })
+      .then((res) => {
+        dispatch(setToken(res.data.token));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const paperStyle = {
     padding: 20,
     height: "70vh",
@@ -10,6 +33,7 @@ const Login = () => {
   };
 
   const btnstyle = { margin: "8px 0" };
+
   return (
     <Grid>
       <Paper elevation={10} style={paperStyle}>
@@ -19,6 +43,7 @@ const Login = () => {
           variant="outlined"
           fullWidth
           required
+          {...username}
           style={{ marginBottom: "10px" }}
         />
         <TextField
@@ -28,6 +53,8 @@ const Login = () => {
           variant="outlined"
           fullWidth
           required
+          {...password}
+          style={{ marginBottom: "10px" }}
         />
 
         <Button
@@ -35,6 +62,7 @@ const Login = () => {
           variant="contained"
           style={{ ...btnstyle, background: "teal" }}
           fullWidth
+          onClick={handleSubmit}
         >
           Sign in
         </Button>

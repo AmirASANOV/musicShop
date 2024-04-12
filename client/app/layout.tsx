@@ -5,6 +5,9 @@ import Header from "./components/Header/Header";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import s from "./style.module.scss";
 import Link from "next/link";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { StoreProvider } from "./store/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,14 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
-      <body>
-        <Header />
-        <Link href="/basket">
-          <ShoppingBagIcon className={s.icon} />
-        </Link>
-        <main>{children}</main>
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="ru">
+        <body>
+          <Header />
+          <Link href="/basket">
+            <ShoppingBagIcon className={s.icon} />
+          </Link>
+          <main>{children}</main>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }
