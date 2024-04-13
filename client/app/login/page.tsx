@@ -21,7 +21,7 @@ const Login = () => {
       })
       .then((res) => {
         dispatch(setToken(res.data.token));
-        console.log(res.data.token);
+
         router.push("/");
       })
       .catch((err) => {
