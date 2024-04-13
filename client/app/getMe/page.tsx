@@ -1,9 +1,19 @@
+"use client";
 import { Button } from "@mui/material";
 import s from "./GetMe.module.scss";
 
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 
 const GetMe = () => {
+
+  
+  useEffect(() => {
+    axios.get("http://localhost:1000/auth/getme").then((res) => {
+      console.log(res.data);
+    });
+  }, []);
+
   return (
     <div className={s.wrapper}>
       <div>
