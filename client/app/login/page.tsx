@@ -5,11 +5,13 @@ import useInput from "../hooks/useInput";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setToken } from "../store/authSlice";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const dispatch = useDispatch();
   const username = useInput("");
   const password = useInput("");
+  const router = useRouter();
 
   const handleSubmit = () => {
     axios
@@ -19,6 +21,8 @@ const Login = () => {
       })
       .then((res) => {
         dispatch(setToken(res.data.token));
+        console.log(res.data.token);
+        router.push("/");
       })
       .catch((err) => {
         console.log(err);
