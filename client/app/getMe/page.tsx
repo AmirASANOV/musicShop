@@ -6,6 +6,7 @@ import axios from "axios";
 import { useAppSelector } from "../hooks/useSelector";
 import { useAppDispatch } from "../hooks/useDispatch";
 import { clearToken } from "../store/authSlice";
+import { useRouter } from "next/navigation";
 
 interface IUser {
   name: string;
@@ -18,6 +19,7 @@ const GetMe = () => {
   const token = useAppSelector((state: any) => state.authSlice.token);
   const dispatch = useAppDispatch();
   const [user, setUser] = useState<IUser>({} as IUser);
+  const router = useRouter();
 
   useEffect(() => {
     if (token) {
@@ -34,6 +36,7 @@ const GetMe = () => {
   const logOut = () => {
     dispatch(clearToken());
     setUser({} as IUser);
+    router.push("/");
   };
 
   return (

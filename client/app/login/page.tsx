@@ -6,6 +6,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setToken } from "../store/authSlice";
 import { useRouter } from "next/navigation";
+import { useAppSelector } from "../hooks/useSelector";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,6 @@ const Login = () => {
       })
       .then((res) => {
         dispatch(setToken(res.data.token));
-
         router.push("/");
       })
       .catch((err) => {
