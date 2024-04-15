@@ -5,6 +5,7 @@ import Products from "./products/page";
 
 export default function Home() {
   const token = useAppSelector((state: any) => state.authSlice.token);
+  console.log(token);
 
   return (
     <main>

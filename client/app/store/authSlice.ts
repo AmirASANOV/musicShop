@@ -1,7 +1,13 @@
+"use client";
 import { createSlice } from "@reduxjs/toolkit";
+import dynamic from "next/dynamic";
+
+const token =
+  typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
 const initialState = {
-  token: null,
+  token: token,
+  isAuth: !!token,
 };
 
 const authSlice = createSlice({
@@ -10,10 +16,12 @@ const authSlice = createSlice({
   reducers: {
     setToken(state, action) {
       state.token = action.payload;
+      localStorage.setItem("token", action.payload);
     },
 
     clearToken(state) {
       state.token = null;
+      localStorage.removeItem("token");
     },
   },
 });

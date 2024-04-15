@@ -7,7 +7,6 @@ import { useAppSelector } from "@/app/hooks/useSelector";
 
 const Header = () => {
   const token = useAppSelector((state: any) => state.authSlice.token);
-  console.log(token);
 
   return (
     <div>
