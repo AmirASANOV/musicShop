@@ -6,7 +6,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { useAppSelector } from "@/app/hooks/useSelector";
 
 const Header = () => {
-  const token = useAppSelector((state: any) => state.authSlice.token);
+  const token = useAppSelector((state: any) => state.authSlice.value.token);
 
   return (
     <div>

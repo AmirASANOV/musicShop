@@ -4,7 +4,7 @@ import { useAppSelector } from "./hooks/useSelector";
 import Products from "./products/page";
 
 export default function Home() {
-  const token = useAppSelector((state: any) => state.authSlice.token);
+  const token = useAppSelector((state: any) => state.authSlice.value.token);
   console.log(token);
 
   return (

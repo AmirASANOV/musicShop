@@ -16,7 +16,7 @@ interface IUser {
 }
 
 const GetMe = () => {
-  const token = useAppSelector((state: any) => state.authSlice.token);
+  const token = useAppSelector((state: any) => state.authSlice.value.token);
   const dispatch = useAppDispatch();
   const [user, setUser] = useState<IUser>({} as IUser);
   const router = useRouter();

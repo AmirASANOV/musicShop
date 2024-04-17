@@ -6,8 +6,10 @@ const token =
   typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
 const initialState = {
-  token: token,
-  isAuth: !!token,
+  value: {
+    token: token,
+    isAuth: !!token,
+  },
 };
 
 const authSlice = createSlice({
@@ -15,12 +17,12 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setToken(state, action) {
-      state.token = action.payload;
+      state.value.token = action.payload;
       localStorage.setItem("token", action.payload);
     },
 
     clearToken(state) {
-      state.token = null;
+      state.value.token = null;
       localStorage.removeItem("token");
     },
   },

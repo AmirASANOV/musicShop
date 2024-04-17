@@ -22,16 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
-      <html lang="ru">
-        <body>
+    <html lang="ru">
+      <body>
+        <StoreProvider>
           <Header />
           <Link href="/basket">
             <ShoppingBagIcon className={s.icon} />
           </Link>
           <main>{children}</main>
-        </body>
-      </html>
-    </StoreProvider>
+        </StoreProvider>
+      </body>
+    </html>
   );
 }
