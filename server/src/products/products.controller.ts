@@ -22,17 +22,17 @@ import { fileStorage } from 'src/files/storage';
 export class ProductController {
   constructor(private readonly productsService: ProductsService) {}
 
-  @UseGuards(TokenGuard)
-  @Post('create')
-  async createProduct(
-    @Body() createProductDto: CreateProductDto,
-    @Req() req: Request,
-  ) {
-    return this.productsService.createProductService(
-      createProductDto,
-      req['user'],
-    );
-  }
+  // @UseGuards(TokenGuard)
+  // @Post('create')
+  // async createProduct(
+  //   @Body() createProductDto: CreateProductDto,
+  //   @Req() req: Request,
+  // ) {
+  //   return this.productsService.createProductService(
+  //     createProductDto,
+  //     req['user'],
+  //   );
+  // }
 
   @UseGuards(TokenGuard)
   @Get()
@@ -41,7 +41,7 @@ export class ProductController {
   }
 
   @UseGuards(TokenGuard)
-  @Post('create_v2')
+  @Post('create')
   @UseInterceptors(
     FileInterceptor('file', {
       storage: fileStorage,

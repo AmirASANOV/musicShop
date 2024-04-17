@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardItem from "../components/CardItem/CardItem";
 import s from "./Products.module.scss";
+import axios from "axios";
 
 const Products = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://662043b43bf790e070af6c86.mockapi.io/items")
+      .then((res) => {
+        setData(res.data);
+      });
+  }, []);
+
   return (
     <div className={s.wrapper}>
       <h1>Products:</h1>
       <div className={s.container}>
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
+        {data.map((item: any) => (
+          <CardItem key={item.id} data={item} />
+        ))}
       </div>
     </div>
   );
