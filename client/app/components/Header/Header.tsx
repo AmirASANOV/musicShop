@@ -30,7 +30,7 @@ const Header = () => {
             <Link className={s.link} href="/">
               Home
             </Link>
-            {isVisible && (
+            {!isVisible && (
               <Link className={s.link} href="/login">
                 Login
               </Link>

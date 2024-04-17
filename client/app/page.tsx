@@ -1,5 +1,4 @@
 "use client";
-import GetMe from "./getMe/page";
 import { useAppSelector } from "./hooks/useSelector";
 import Products from "./products/page";
 

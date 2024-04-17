@@ -1,13 +1,10 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
-import dynamic from "next/dynamic";
 
-const token =
-  typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
 const initialState = {
   value: {
-    token: token,
+    token: null,
     isAuth: false,
   },
 };
