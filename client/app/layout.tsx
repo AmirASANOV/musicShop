@@ -5,8 +5,6 @@ import Header from "./components/Header/Header";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import s from "./style.module.scss";
 import Link from "next/link";
-import { Provider } from "react-redux";
-import { store } from "./store/store";
 import { StoreProvider } from "./store/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });

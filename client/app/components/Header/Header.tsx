@@ -4,9 +4,19 @@ import Link from "next/link";
 import s from "./Header.module.scss";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { useAppSelector } from "@/app/hooks/useSelector";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const token = useAppSelector((state: any) => state.authSlice.value.token);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (token) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [token]);
 
   return (
     <div>
@@ -20,7 +30,7 @@ const Header = () => {
             <Link className={s.link} href="/">
               Home
             </Link>
-            {!token && (
+            {isVisible && (
               <Link className={s.link} href="/login">
                 Login
               </Link>

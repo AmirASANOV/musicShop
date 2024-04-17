@@ -8,7 +8,7 @@ const token =
 const initialState = {
   value: {
     token: token,
-    isAuth: !!token,
+    isAuth: false,
   },
 };
 
@@ -19,11 +19,13 @@ const authSlice = createSlice({
     setToken(state, action) {
       state.value.token = action.payload;
       localStorage.setItem("token", action.payload);
+      state.value.isAuth = true;
     },
 
     clearToken(state) {
       state.value.token = null;
       localStorage.removeItem("token");
+      state.value.isAuth = false;
     },
   },
 });
