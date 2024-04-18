@@ -1,5 +1,5 @@
 "use client";
-import { AppBar, Icon, Toolbar } from "@mui/material";
+import { AppBar, Toolbar } from "@mui/material";
 import Link from "next/link";
 import s from "./Header.module.scss";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
