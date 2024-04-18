@@ -1,12 +1,18 @@
-import React from "react";
+"use client";
+import React, { FC } from "react";
 import s from "./BasketItem.module.scss";
 import Image from "next/image";
+import { useAppSelector } from "@/app/hooks/useSelector";
 
-const BasketItem = () => {
+interface IProps {
+  data: any;
+}
+const BasketItem: FC<IProps> = ({ data }) => {
+  console.log(data);
   return (
     <div className={s.wrapper}>
       <Image
-        src="/photo_2021-10-09_20-01-09.jpg"
+        src={`${data.imageUrl}.jpg`}
         alt="Description of the image"
         sizes="(100%, 100%)"
         width={100}
@@ -15,10 +21,10 @@ const BasketItem = () => {
 
       <div className={s.text}>
         <div>
-          <h3>Title</h3>
+          <h3>{data.title}</h3>
           <p>Description</p>
         </div>
-        <p>4000</p>
+        <p>{data.price}</p>
       </div>
     </div>
   );

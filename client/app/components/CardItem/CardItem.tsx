@@ -17,7 +17,6 @@ type ICardItem = {
 
 const CardItem: FC<IProps> = (props) => {
   const dispatch = useAppDispatch();
-  const selector = useAppSelector((state) => state.basketSlice);
 
   const handleClick = () => {
     const data = {
