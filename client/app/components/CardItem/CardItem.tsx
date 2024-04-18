@@ -1,6 +1,9 @@
 import React, { FC } from "react";
 import s from "./CardItem.module.scss";
 import { Button } from "@mui/material";
+import { useAppDispatch } from "@/app/hooks/useDispatch";
+import { addBasket } from "@/app/store/basketSlice";
+import { useAppSelector } from "@/app/hooks/useSelector";
 
 interface IProps {
   data: ICardItem;
@@ -13,7 +16,18 @@ type ICardItem = {
 };
 
 const CardItem: FC<IProps> = (props) => {
-  console.log(props);
+  const dispatch = useAppDispatch();
+  const selector = useAppSelector((state) => state.basketSlice);
+
+  const handleClick = () => {
+    const data = {
+      imageUrl: props.data.imageUrl,
+      title: props.data.name,
+      price: props.data.price,
+    };
+    dispatch(addBasket(data));
+  };
+
   return (
     <div className={s.wrapper}>
       <div className={s.image}>
@@ -34,6 +48,7 @@ const CardItem: FC<IProps> = (props) => {
           className={s.button}
           variant="contained"
           style={{ background: "teal" }}
+          onClick={handleClick}
           href="#"
         >
           buy
