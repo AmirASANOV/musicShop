@@ -16,7 +16,8 @@ interface IUser {
 }
 
 const GetMe = () => {
-  const token = useAppSelector((state: any) => state.authSlice.value.token);
+  const token = localStorage.getItem("token");
+
   const dispatch = useAppDispatch();
   const [user, setUser] = useState<IUser>({} as IUser);
   const router = useRouter();

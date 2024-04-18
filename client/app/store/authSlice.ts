@@ -1,12 +1,22 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
+import { useEffect, useState } from "react";
 
+interface IAuth {
+  token: string | null;
+  isAuth: boolean;
+}
 
-const initialState = {
-  value: {
-    token: null,
-    isAuth: false,
-  },
+let token = null;
+
+if (typeof window !== "undefined") {
+  const tokenStorage = localStorage.getItem("token");
+  token = tokenStorage;
+}
+
+const initialState: IAuth = {
+  token: token || null,
+  isAuth: !!token,
 };
 
 const authSlice = createSlice({
@@ -14,15 +24,15 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setToken(state, action) {
-      state.value.token = action.payload;
+      state.token = action.payload;
       localStorage.setItem("token", action.payload);
-      state.value.isAuth = true;
+      state.isAuth = true;
     },
 
     clearToken(state) {
-      state.value.token = null;
+      state.token = null;
       localStorage.removeItem("token");
-      state.value.isAuth = false;
+      state.isAuth = false;
     },
   },
 });

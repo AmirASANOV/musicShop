@@ -8,7 +8,6 @@ interface IProps {
   data: any;
 }
 const BasketItem: FC<IProps> = ({ data }) => {
-  console.log(data);
   return (
     <div className={s.wrapper}>
       <Image

@@ -7,8 +7,8 @@ import { useAppSelector } from "@/app/hooks/useSelector";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-  const token = useAppSelector((state: any) => state.authSlice.value.token);
   const [isVisible, setIsVisible] = useState(false);
+  const token = useAppSelector((state) => state.authSlice.token);
 
   useEffect(() => {
     if (token) {
