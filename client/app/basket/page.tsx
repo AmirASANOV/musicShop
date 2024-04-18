@@ -13,7 +13,7 @@ const Basket = () => {
       <h1>Ваша корзина:</h1>
 
       {selector.products.map((item: any) => (
-        <BasketItem key={item.title} data={item} />
+        <BasketItem key={item.id} data={item} />
       ))}
     </div>
   );

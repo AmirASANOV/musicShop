@@ -10,21 +10,25 @@ interface IProps {
 }
 
 type ICardItem = {
+  id: number;
   imageUrl: string;
   name: string;
   price: number;
 };
 
 const CardItem: FC<IProps> = (props) => {
+  const [isClicked, setIsClicked] = React.useState(false);
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
     const data = {
+      id: props.data.id,
       imageUrl: props.data.imageUrl,
       title: props.data.name,
       price: props.data.price,
     };
     dispatch(addBasket(data));
+    setIsClicked(true);
   };
 
   return (
@@ -43,15 +47,19 @@ const CardItem: FC<IProps> = (props) => {
 
       <div className={s.buy}>
         <p className={s.text}>{props.data.price}</p>
-        <Button
-          className={s.button}
-          variant="contained"
-          style={{ background: "teal" }}
-          onClick={handleClick}
-          href="#"
-        >
-          buy
-        </Button>
+        {!isClicked ? (
+          <Button
+            className={s.button}
+            variant="contained"
+            style={{ background: "teal" }}
+            onClick={handleClick}
+            href="#"
+          >
+            buy
+          </Button>
+        ) : (
+          <p>Clicked</p>
+        )}
       </div>
     </div>
   );
