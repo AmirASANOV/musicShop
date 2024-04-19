@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import s from "./BasketItem.module.scss";
 import Image from "next/image";
-import { useAppSelector } from "@/app/hooks/useSelector";
+
 
 interface IProps {
   data: any;
