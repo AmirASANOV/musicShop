@@ -3,7 +3,6 @@ import s from "./CardItem.module.scss";
 import { Button } from "@mui/material";
 import { useAppDispatch } from "@/app/hooks/useDispatch";
 import { addBasket } from "@/app/store/basketSlice";
-import { useAppSelector } from "@/app/hooks/useSelector";
 
 interface IProps {
   data: ICardItem;

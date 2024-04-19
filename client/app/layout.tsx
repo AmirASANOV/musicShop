@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header/Header";
+import Header from "../components/Header/Header";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import s from "./style.module.scss";
 import Link from "next/link";

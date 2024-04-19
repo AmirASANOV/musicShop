@@ -3,7 +3,6 @@ import React, { FC } from "react";
 import s from "./BasketItem.module.scss";
 import Image from "next/image";
 
-
 interface IProps {
   data: any;
 }
