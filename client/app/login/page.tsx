@@ -1,12 +1,11 @@
 "use client";
 import { Grid, Paper, TextField, Button, Typography } from "@mui/material";
 import Link from "next/link";
-import useInput from "../../app/hooks/useInput";
+import useInput from "../../hooks/useInput";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setToken } from "../../app/store/authSlice";
+import { setToken } from "../../store/authSlice";
 import { useRouter } from "next/navigation";
-import { useAppSelector } from "../../app/hooks/useSelector";
 
 const Login = () => {
   const dispatch = useDispatch();

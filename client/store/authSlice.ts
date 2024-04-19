@@ -1,6 +1,5 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
-import { useEffect, useState } from "react";
 
 interface IAuth {
   token: string | null;

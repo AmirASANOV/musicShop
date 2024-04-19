@@ -2,7 +2,7 @@
 import React from "react";
 import BasketItem from "../../components/BasketItem/BasketItem";
 import s from "./basket.module.scss";
-import { useAppSelector } from "../../app/hooks/useSelector";
+import { useAppSelector } from "../../hooks/useSelector";
 
 const Basket = () => {
   const selector = useAppSelector((state) => state.basketSlice.products);

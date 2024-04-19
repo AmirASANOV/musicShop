@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import s from "./CardItem.module.scss";
 import { Button } from "@mui/material";
-import { useAppDispatch } from "@/app/hooks/useDispatch";
-import { addBasket } from "@/app/store/basketSlice";
+import { useAppDispatch } from "@/hooks/useDispatch";
+import { addBasket } from "@/store/basketSlice";
 
 interface IProps {
   data: ICardItem;

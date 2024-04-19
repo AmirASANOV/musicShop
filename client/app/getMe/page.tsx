@@ -3,9 +3,8 @@ import { Button } from "@mui/material";
 import s from "./GetMe.module.scss";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useAppSelector } from "../../app/hooks/useSelector";
-import { useAppDispatch } from "../../app/hooks/useDispatch";
-import { clearToken } from "../../app/store/authSlice";
+import { useAppDispatch } from "../../hooks/useDispatch";
+import { clearToken } from "../../store/authSlice";
 import { useRouter } from "next/navigation";
 
 interface IUser {

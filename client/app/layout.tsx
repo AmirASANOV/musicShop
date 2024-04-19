@@ -5,7 +5,7 @@ import Header from "../components/Header/Header";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import s from "./style.module.scss";
 import Link from "next/link";
-import { StoreProvider } from "./store/StoreProvider";
+import { StoreProvider } from "../store/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
