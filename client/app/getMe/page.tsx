@@ -15,23 +15,22 @@ interface IUser {
 }
 
 const GetMe = () => {
-  const token = localStorage.getItem("token");
+  const [user, setUser] = useState<IUser>({} as IUser);
 
   const dispatch = useAppDispatch();
-  const [user, setUser] = useState<IUser>({} as IUser);
   const router = useRouter();
 
   useEffect(() => {
-    if (token) {
-      axios
-        .get("http://localhost:1000/auth/getme", {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((res) => {
-          setUser(res.data);
-        });
-    }
-  }, [token]);
+    const token = localStorage.getItem("token");
+
+    axios
+      .get("http://localhost:1000/auth/getme", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        setUser(res.data);
+      });
+  }, []);
 
   const logOut = () => {
     dispatch(clearToken());
