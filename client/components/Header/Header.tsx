@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
+  console.log(isVisible);
   // const token = useAppSelector((state) => state.authSlice.token);
 
   const [token, setToken] = useState<string | null>(null);
@@ -25,9 +26,11 @@ const Header = () => {
     <div>
       <AppBar position="static" sx={{ background: "teal" }}>
         <Toolbar className={s.header}>
-          <Link href="/getMe">
-            <AccountBoxIcon style={{ color: "#fff" }} />
-          </Link>
+          {isVisible && (
+            <Link href="/getMe">
+              <AccountBoxIcon style={{ color: "#fff" }} />
+            </Link>
+          )}
 
           <div className="links">
             <Link className={s.link} href="/">

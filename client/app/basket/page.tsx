@@ -6,7 +6,7 @@ import { useAppSelector } from "../../hooks/useSelector";
 
 const Basket = () => {
   const selector = useAppSelector((state) => state.basketSlice.products);
-  console.log(selector);
+
   return (
     <div className={s.wrapper}>
       <h1>Ваша корзина:</h1>

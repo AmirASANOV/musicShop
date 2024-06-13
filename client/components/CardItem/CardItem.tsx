@@ -19,7 +19,8 @@ const CardItem: FC<IProps> = (props) => {
   const [isClicked, setIsClicked] = React.useState(false);
   const dispatch = useAppDispatch();
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     const data = {
       id: props.data.id,
       imageUrl: props.data.imageUrl,
@@ -42,7 +43,6 @@ const CardItem: FC<IProps> = (props) => {
         </picture>
       </div>
       <h3 className={s.text}>{props.data.name}</h3>
-      <p className={s.text}>Description</p>
 
       <div className={s.buy}>
         <p className={s.text}>{props.data.price}</p>

@@ -36,6 +36,9 @@ const GetMe = () => {
     dispatch(clearToken());
     setUser({} as IUser);
     router.push("/");
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   return (
