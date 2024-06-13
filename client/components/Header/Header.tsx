@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
-  console.log(isVisible);
+
   // const token = useAppSelector((state) => state.authSlice.token);
 
   const [token, setToken] = useState<string | null>(null);
