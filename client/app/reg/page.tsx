@@ -7,20 +7,31 @@ import { useDispatch } from "react-redux";
 import { setToken } from "../../store/authSlice";
 import { useRouter } from "next/navigation";
 
-const Login = () => {
+const Reg = () => {
   const dispatch = useDispatch();
-  const username = useInput("");
+
+  const name = useInput("");
+  const email = useInput("");
   const password = useInput("");
+  const phoneNumber = useInput("");
+
   const router = useRouter();
+
+  const handleInput = (event: any) => {
+    event.target.value = event.target.value.replace(/[^0-9]/g, "");
+  };
 
   const handleSubmit = () => {
     axios
-      .post("http://localhost:1000/auth/login", {
-        email: username.value,
+      .post("http://localhost:1000/auth/registration", {
+        name: name.value,
+        email: email.value,
         password: password.value,
+        phoneNumber: phoneNumber.value,
       })
       .then((res) => {
-        dispatch(setToken(res.data.token));
+        console.log(res);
+
         router.push("/");
         setTimeout(() => {
           window.location.reload();
@@ -49,7 +60,17 @@ const Login = () => {
           variant="outlined"
           fullWidth
           required
-          {...username}
+          {...name}
+          style={{ marginBottom: "10px" }}
+        />
+        <TextField
+          label="email"
+          placeholder="Enter email"
+          type="email"
+          variant="outlined"
+          fullWidth
+          required
+          {...email}
           style={{ marginBottom: "10px" }}
         />
         <TextField
@@ -63,6 +84,17 @@ const Login = () => {
           style={{ marginBottom: "10px" }}
         />
 
+        <TextField
+          label="Phone number"
+          placeholder="Enter phone number"
+          variant="outlined"
+          fullWidth
+          required
+          inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+          {...phoneNumber}
+          style={{ marginBottom: "10px" }}
+        />
+
         <Button
           type="submit"
           variant="contained"
@@ -70,17 +102,18 @@ const Login = () => {
           fullWidth
           onClick={handleSubmit}
         >
-          Sign in
+          register
         </Button>
         <Typography>
           <Link href="#">Forgot password ?</Link>
         </Typography>
         <Typography>
-          Do you have an account ?<Link href="/reg">Sign Up</Link>
+          {" "}
+          Do you have an account ?<Link href="#">Sign Up</Link>
         </Typography>
       </Paper>
     </Grid>
   );
 };
 
-export default Login;
+export default Reg;
