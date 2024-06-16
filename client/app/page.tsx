@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import s from "./Products.module.scss";
 import axios from "axios";
 import CardItem from "@/components/CardItem/CardItem";
+import Footer from "@/components/Footer/Footer";
 
 const Products = () => {
   const [data, setData] = useState([]);
@@ -73,6 +74,7 @@ const Products = () => {
           <CardItem key={item.id} data={item} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

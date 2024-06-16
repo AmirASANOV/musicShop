@@ -29,7 +29,6 @@ export default function RootLayout({
             <ShoppingBagIcon className={s.icon} />
           </Link>
           <main>{children}</main>
-          <Footer />
         </StoreProvider>
       </body>
     </html>
