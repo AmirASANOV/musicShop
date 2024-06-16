@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import s from "./style.module.scss";
 import Link from "next/link";
@@ -28,6 +29,7 @@ export default function RootLayout({
             <ShoppingBagIcon className={s.icon} />
           </Link>
           <main>{children}</main>
+          <Footer />
         </StoreProvider>
       </body>
     </html>

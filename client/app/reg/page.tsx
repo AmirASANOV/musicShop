@@ -104,9 +104,7 @@ const Reg = () => {
         >
           register
         </Button>
-        <Typography>
-          <Link href="#">Forgot password ?</Link>
-        </Typography>
+
         <Typography>
           {" "}
           Do you have an account ?<Link href="#">Sign Up</Link>
